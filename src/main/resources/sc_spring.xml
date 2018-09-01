@@ -1,0 +1,108 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--
+    # usingbeanpostprocessor package
+    <bean id = "helloWorld" class = "com.spring.usingbeanpostprocessor.HelloWorld"
+          init-method = "init" destroy-method = "destroy">
+        <property name = "message" value = "Hello World!"/>
+    </bean>
+
+     <bean class = "com.spring.usingbeanpostprocessor.InitHelloWorld" />
+     -->
+
+    <!--
+    # usingspringinheritence package
+    <bean id="helloWorld" class="com.spring.usingspringinheritence.HelloWorld">
+        <property name="message1" value="Hello World!"/>
+        <property name="message2" value="Hello Second World!"/>
+    </bean>
+
+    <bean id="helloIndia" class="com.spring.usingspringinheritence.HelloIndia" parent="helloWorld">
+        <property name="message1" value="Hello India!"/>
+        <property name="message3" value="Namaste India!"/>
+    </bean>
+
+    <bean id="beanTeamplate" abstract="true">
+        <property name="message1" value="Hello UK!"/>
+        <property name="message2" value="Hello USA!"/>
+        <property name="message3" value="Namaste Japan!"/>
+    </bean>
+
+    <bean id="testTemplate" class="com.spring.usingspringinheritence.TestTemplate" parent="beanTeamplate">
+        <property name="message1" value="Hello India!"/>
+    </bean>
+    -->
+
+    <!--
+    #usingconstructordepinj package
+
+    <bean id = "textEditor" class = "com.spring.usingconstructordepinj.TextEditor">
+        <constructor-arg index = "0" ref = "spellChecker"/>
+        <constructor-arg index = "1" value = "Madhukar"/>
+    </bean>
+
+
+    <bean id = "spellChecker" class = "com.spring.usingconstructordepinj.SpellChecker"></bean>
+     -->
+
+    <!--
+    usingsetterdepinj package
+    <bean id = "textEditor" class = "com.spring.usingsetterdepinj.TextEditor">
+       <property name = "spellChecker" ref = "spellChecker"/>
+    </bean>
+
+
+    <bean id = "spellChecker" class = "com.spring.usingsetterdepinj.SpellChecker"></bean>
+    -->
+
+
+    <bean id = "javaCollection" class = "com.spring.injectingcollection.JavaCollection">
+
+
+        <property name = "addressList">
+            <list>
+                <value>INDIA</value>
+                <value>Pakistan</value>
+                <value>USA</value>
+                <value>USA</value>
+            </list>
+        </property>
+
+        <!-- results in a setAddressSet(java.util.Set) call -->
+        <property name = "addressSet">
+            <set>
+                <value>INDIA</value>
+                <value>Pakistan</value>
+                <value>USA</value>
+                <value>USA</value>
+            </set>
+        </property>
+
+        <!-- results in a setAddressMap(java.util.Map) call -->
+        <property name = "addressMap">
+            <map>
+                <entry key = "1" value = "INDIA"/>
+                <entry key = "2" value = "Pakistan"/>
+                <entry key = "3" value = "USA"/>
+                <entry key = "4" value = "USA"/>
+            </map>
+        </property>
+
+        <!-- results in a setAddressProp(java.util.Properties) call -->
+        <property name = "addressProp">
+            <props>
+                <prop key = "one">INDIA</prop>
+                <prop key = "one">INDIA</prop>
+                <prop key = "two">Pakistan</prop>
+                <prop key = "three">USA</prop>
+                <prop key = "four">USA</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
